@@ -1,17 +1,23 @@
 import { StyledContainer } from "./App.styles.jsx";
-import { Container, Grid } from "@mui/material";
+import { themeOptions } from "./themes";
+import { Container, Grid, ThemeProvider } from "@mui/material";
 import { ReactComponent as LogoTitle } from "./images/logo.svg";
+import TipInput from "./input/input.component.jsx";
 
 function App() {
   return (
-    <StyledContainer maxWidth="lg">
-      <Grid container>
-        <Grid item container xs={12} justifyContent="center">
-          <LogoTitle />
+    <ThemeProvider theme={themeOptions}>
+      <StyledContainer maxWidth="lg">
+        <Grid container>
+          <Grid item container xs={12} justifyContent="center">
+            <LogoTitle />
+          </Grid>
+          <Grid container item>
+            <TipInput />
+          </Grid>
         </Grid>
-        <Grid container item></Grid>
-      </Grid>
-    </StyledContainer>
+      </StyledContainer>
+    </ThemeProvider>
   );
 }
 
