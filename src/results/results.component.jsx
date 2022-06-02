@@ -8,7 +8,16 @@ import {
   StyledIconDollar,
 } from "./results.styles";
 
-const ResultsOutput = () => {
+const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
+  const tipPerPerson = (bill, people, percent) => {
+    const deci = percent / 100;
+    return (bill * deci) / people;
+  };
+
+  const tipDisplay = tipPerPerson(bill, people, percent).toFixed(2);
+
+  const totalPerDisplay = +tipDisplay + bill / people;
+
   return (
     <StyledGridContainer item md={6}>
       <StyledCard>
@@ -20,7 +29,9 @@ const ResultsOutput = () => {
                 <Typography variant="body1">/ person</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="h4">$0.00</Typography>
+                <Typography variant="h4">
+                  ${people > 0 ? tipDisplay : "0.00"}
+                </Typography>
               </Grid>
             </Grid>
             <Grid container item>
@@ -29,12 +40,14 @@ const ResultsOutput = () => {
                 <Typography variant="body1">/ person</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="h4">$0.00</Typography>
+                <Typography variant="h4">
+                  ${people > 0 ? totalPerDisplay : "0.00"}
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <SubmitButton>reset</SubmitButton>
+            <SubmitButton onClick={resetHandler}>reset</SubmitButton>
           </Grid>
         </Grid>
       </StyledCard>

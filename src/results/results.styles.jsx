@@ -6,6 +6,7 @@ export const StyledCard = styled(Card)({
   backgroundColor: "#00474B",
   height: "80%",
   padding: "40px",
+  borderRadius: "15px",
 });
 
 export const SubmitButton = styled(Button)({
