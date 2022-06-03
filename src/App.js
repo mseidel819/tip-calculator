@@ -42,7 +42,7 @@ function App() {
           </Grid>
           <Grid container item justifyContent="center">
             <StyledCard>
-              <Grid container columnSpacing={6}>
+              <Grid container columnSpacing={6} rowSpacing={4}>
                 <TipInput
                   percentHandler={percentHandler}
                   onBillChange={onBillChange}

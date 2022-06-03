@@ -3,7 +3,7 @@ import { styled, Container, Card } from "@mui/material";
 export const StyledContainer = styled(Container)({
   display: "flex",
   alignItems: "center",
-  height: "100vh",
+  minHeight: "650px",
 });
 
 export const StyledCard = styled(Card)({
