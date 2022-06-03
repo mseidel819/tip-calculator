@@ -8,9 +8,9 @@ import TipInput from "./input/input.component.jsx";
 import ResultsOutput from "./results/results.component.jsx";
 
 function App() {
-  const [bill, setBill] = useState(null);
-  const [people, setPeople] = useState(null);
-  const [percent, setPercent] = useState(null);
+  const [bill, setBill] = useState("");
+  const [people, setPeople] = useState("");
+  const [percent, setPercent] = useState("");
 
   const onBillChange = (e) => {
     const billInput = e.target.value;
