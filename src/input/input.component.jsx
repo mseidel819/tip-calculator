@@ -1,4 +1,4 @@
-import { Grid, Typography, InputAdornment, Button } from "@mui/material";
+import { Grid, Typography, InputAdornment } from "@mui/material";
 import { ReactComponent as IconDollar } from "../images/icon-dollar.svg";
 import { ReactComponent as IconPerson } from "../images/icon-person.svg";
 import PercentButton from "../components/percent-button/percent-button.component";
@@ -11,8 +11,9 @@ const TipInput = ({
   onPeopleChange,
   people,
   bill,
+  customHandler,
 }) => {
-  const tipArray = [5, 10, 15, 25, 50];
+  const tipArray = [10, 15, 20, 25, 30];
 
   return (
     <Grid container item md={6} rowSpacing={5}>
@@ -26,7 +27,7 @@ const TipInput = ({
           type="number"
           disableUnderline
           placeholder="0"
-          startAdornment={
+          endAdornment={
             <InputAdornment position="start">
               <IconDollar />
             </InputAdornment>
@@ -53,22 +54,38 @@ const TipInput = ({
           })}
 
           <Grid item xs={6} md={4}>
-            <CustomInput disableUnderline placeholder="Custom" type="number" />
+            <CustomInput
+              onChange={customHandler}
+              id="input-to-clear3"
+              disableUnderline
+              placeholder="Custom"
+              type="number"
+            />
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h2" color="#5E7A7D">
-          {" "}
-          Number of People
-        </Typography>
+      <Grid item container xs={12} justifyContent="space-between">
+        <Grid item xs={6}>
+          <Typography variant="h2" color="#5E7A7D">
+            Number of People
+          </Typography>
+        </Grid>
+        {people == 0 && people !== "" && (
+          <Grid item xs={4}>
+            <Typography variant="h2" color="red">
+              Can't be zero
+            </Typography>
+          </Grid>
+        )}
+
         <StyledInput
           onChange={onPeopleChange}
+          error={people == 0 && people !== ""}
           type="number"
           id="input-to-clear1"
           disableUnderline
           placeholder="0"
-          startAdornment={
+          endAdornment={
             <InputAdornment position="start">
               <IconPerson />
             </InputAdornment>

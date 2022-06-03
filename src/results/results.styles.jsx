@@ -1,6 +1,4 @@
-import { styled, Button, Grid, Card } from "@mui/material";
-
-export const StyledGridContainer = styled(Grid)({});
+import { styled, Button, Card } from "@mui/material";
 
 export const StyledCard = styled(Card)({
   backgroundColor: "#00474B",

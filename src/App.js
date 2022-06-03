@@ -26,12 +26,18 @@ function App() {
     setPeople(peopleInput);
   };
 
+  const customHandler = (e) => {
+    const amount = e.target.value;
+    setPercent(amount);
+  };
+
   const resetHandler = () => {
     setBill(0);
     setPeople(0);
     setPercent(0);
     document.getElementById("input-to-clear1").value = "";
     document.getElementById("input-to-clear2").value = "";
+    document.getElementById("input-to-clear3").value = "";
   };
   return (
     <ThemeProvider theme={themeOptions}>
@@ -46,8 +52,9 @@ function App() {
                 <TipInput
                   percentHandler={percentHandler}
                   onBillChange={onBillChange}
-                  percent={percent}
                   onPeopleChange={onPeopleChange}
+                  customHandler={customHandler}
+                  percent={percent}
                   people={people}
                   bill={bill}
                 />

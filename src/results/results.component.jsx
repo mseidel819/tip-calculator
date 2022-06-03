@@ -1,13 +1,6 @@
-import { Grid, Card, Typography, Button } from "@mui/material";
-import { ReactComponent as IconDollar } from "../images/icon-dollar.svg";
+import { Grid, Typography } from "@mui/material";
 
-import {
-  SubmitButton,
-  StyledGridContainer,
-  StyledCard,
-  StyledIconDollar,
-  DisabledButon,
-} from "./results.styles";
+import { SubmitButton, StyledCard, DisabledButon } from "./results.styles";
 
 const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
   const tipPerPerson = (bill, people, percent) => {
@@ -20,7 +13,7 @@ const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
   const totalPerDisplay = (+tipDisplay + bill / people).toFixed(2);
 
   return (
-    <StyledGridContainer item md={6}>
+    <Grid item md={6}>
       <StyledCard>
         <Grid container rowSpacing={12}>
           <Grid item container xs={12}>
@@ -62,7 +55,7 @@ const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
           </Grid>
         </Grid>
       </StyledCard>
-    </StyledGridContainer>
+    </Grid>
   );
 };
 export default ResultsOutput;
