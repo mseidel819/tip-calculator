@@ -41,7 +41,7 @@ function App() {
   };
   return (
     <ThemeProvider theme={themeOptions}>
-      <StyledContainer maxWidth="lg">
+      <StyledContainer maxWidth="lg" role="main">
         <Grid container rowSpacing={10}>
           <Grid item container xs={12} justifyContent="center">
             <LogoTitle />
