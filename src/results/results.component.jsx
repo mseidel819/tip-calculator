@@ -16,8 +16,8 @@ const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
     <Grid item md={6}>
       <StyledCard>
         <Grid container rowSpacing={17}>
-          <Grid item container xs={12}>
-            <Grid container item xs={12}>
+          <Grid item container xs={12} rowSpacing={3}>
+            <Grid container item xs={12} alignItems="center">
               <Grid item xs={6} sm={6}>
                 <Typography variant="h3">Tip Amount</Typography>
                 <Typography variant="body1">/ person</Typography>
@@ -31,7 +31,7 @@ const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item>
+            <Grid container item alignItems="center">
               <Grid item xs={6}>
                 <Typography variant="h3">Total</Typography>
                 <Typography variant="body1">/ person</Typography>
