@@ -8,9 +8,9 @@ import TipInput from "./input/input.component.jsx";
 import ResultsOutput from "./results/results.component.jsx";
 
 function App() {
-  const [bill, setBill] = useState(0);
-  const [people, setPeople] = useState(0);
-  const [percent, setPercent] = useState(0);
+  const [bill, setBill] = useState(null);
+  const [people, setPeople] = useState(null);
+  const [percent, setPercent] = useState(null);
 
   const onBillChange = (e) => {
     const billInput = e.target.value;
@@ -32,9 +32,9 @@ function App() {
   };
 
   const resetHandler = () => {
-    setBill(0);
-    setPeople(0);
-    setPercent(0);
+    setBill("");
+    setPeople("");
+    setPercent("");
     document.getElementById("input-to-clear1").value = "";
     document.getElementById("input-to-clear2").value = "";
     document.getElementById("input-to-clear3").value = "";

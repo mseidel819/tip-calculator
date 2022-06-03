@@ -10,7 +10,6 @@ const TipInput = ({
   percent,
   onPeopleChange,
   people,
-  bill,
   customHandler,
 }) => {
   const tipArray = [10, 15, 20, 25, 30];
@@ -70,7 +69,7 @@ const TipInput = ({
             Number of People
           </Typography>
         </Grid>
-        {people == 0 && people !== "" && (
+        {+people === 0 && people !== "" && (
           <Grid item xs={4}>
             <Typography variant="h2" color="red">
               Can't be zero
@@ -80,7 +79,7 @@ const TipInput = ({
 
         <StyledInput
           onChange={onPeopleChange}
-          error={people == 0 && people !== ""}
+          error={+people === 0 && people !== ""}
           type="number"
           id="input-to-clear1"
           disableUnderline

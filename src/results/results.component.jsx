@@ -15,7 +15,7 @@ const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
   return (
     <Grid item md={6}>
       <StyledCard>
-        <Grid container rowSpacing={12}>
+        <Grid container rowSpacing={17}>
           <Grid item container xs={12}>
             <Grid container item xs={12}>
               <Grid item xs={6} sm={6}>

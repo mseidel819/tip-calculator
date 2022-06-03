@@ -4,6 +4,7 @@ export const StyledContainer = styled(Container)({
   display: "flex",
   alignItems: "center",
   minHeight: "650px",
+  marginTop: "30px",
 });
 
 export const StyledCard = styled(Card)({
