@@ -2,9 +2,10 @@ import { styled, Container, Card } from "@mui/material";
 
 export const StyledContainer = styled(Container)({
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
-  minHeight: "650px",
-  marginTop: "30px",
+  justifyContent: "center",
+  height: "100vh",
 });
 
 export const StyledCard = styled(Card)({
