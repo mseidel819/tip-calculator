@@ -5,7 +5,11 @@ export const StyledContainer = styled(Container)({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "100vh",
+  marginTop: "50px",
+
+  "@media (max-width: 600px)": {
+    marginTop: "20px",
+  },
 });
 
 export const StyledCard = styled(Card)({
@@ -14,4 +18,9 @@ export const StyledCard = styled(Card)({
   borderRadius: "25px",
   padding: "32px",
   maxWidth: "900px",
+  marginTop: "80px",
+
+  "@media (max-width: 600px)": {
+    marginTop: "20px",
+  },
 });
