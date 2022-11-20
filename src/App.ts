@@ -1,18 +1,19 @@
 import { useState } from "react";
-
-import { StyledContainer, StyledCard } from "./App.styles.jsx";
+import React from "react";
+import { StyledContainer, StyledCard } from "./App.styles";
 import { themeOptions } from "./themes";
 import { Grid, ThemeProvider } from "@mui/material";
 import { ReactComponent as LogoTitle } from "./images/logo.svg";
-import TipInput from "./input/input.component.jsx";
-import ResultsOutput from "./results/results.component.jsx";
+import TipInput from "./input/input.component";
+import ResultsOutput from "./results/results.component";
+import { render } from "@testing-library/react";
 
 function App() {
   const [bill, setBill] = useState("");
   const [people, setPeople] = useState("");
   const [percent, setPercent] = useState("");
 
-  const onBillChange = (e) => {
+  const onBillChange = (e: Event) => {
     const billInput = e.target.value;
     setBill(billInput);
   };
@@ -21,7 +22,7 @@ function App() {
     setPercent(num);
   };
 
-  const onPeopleChange = (e) => {
+  const onPeopleChange = (e: Event) => {
     const peopleInput = e.target.value;
     setPeople(peopleInput);
   };
@@ -31,14 +32,19 @@ function App() {
     setPercent(amount);
   };
 
+  const input1 = document.getElementById("input-to-clear1")!;
+  const input2 = document.getElementById("input-to-clear2")!;
+  const input3 = document.getElementById("input-to-clear3")!;
+
   const resetHandler = () => {
     setBill("");
     setPeople("");
     setPercent("");
-    document.getElementById("input-to-clear1").value = "";
-    document.getElementById("input-to-clear2").value = "";
-    document.getElementById("input-to-clear3").value = "";
+    input1.value = "";
+    input2.value = "";
+    input3.value = "";
   };
+
   return (
     <ThemeProvider theme={themeOptions}>
       <StyledContainer maxWidth="lg" role="main">

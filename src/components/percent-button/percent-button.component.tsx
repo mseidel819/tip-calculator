@@ -1,3 +1,4 @@
+import React from "react";
 import { StyledPercentButton } from "./percent-button.styles";
 
 const PercentButton = ({ children, percentHandler, percent }) => {

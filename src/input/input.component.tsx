@@ -3,6 +3,7 @@ import { ReactComponent as IconDollar } from "../images/icon-dollar.svg";
 import { ReactComponent as IconPerson } from "../images/icon-person.svg";
 import PercentButton from "../components/percent-button/percent-button.component";
 import { StyledInput, CustomInput } from "./input.styles";
+import React from "react";
 
 const TipInput = ({
   onBillChange,
