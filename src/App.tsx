@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import React from "react";
 import { StyledContainer, StyledCard } from "./App.styles";
 import { themeOptions } from "./themes";
@@ -13,7 +13,7 @@ function App() {
   const [people, setPeople] = useState("");
   const [percent, setPercent] = useState("");
 
-  const onBillChange = (e: Event) => {
+  const onBillChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const billInput = e.target.value;
     setBill(billInput);
   };
@@ -22,12 +22,12 @@ function App() {
     setPercent(num);
   };
 
-  const onPeopleChange = (e: Event) => {
+  const onPeopleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const peopleInput = e.target.value;
     setPeople(peopleInput);
   };
 
-  const customHandler = (e) => {
+  const customHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const amount = e.target.value;
     setPercent(amount);
   };
