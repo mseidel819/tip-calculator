@@ -1,9 +1,26 @@
 import { Grid, Typography } from "@mui/material";
+import React from "react";
 
 import { SubmitButton, StyledCard, DisabledButon } from "./results.styles";
 
-const ResultsOutput = ({ bill, people, percent, resetHandler }) => {
-  const tipPerPerson = (bill, people, percent) => {
+type ResultsOutputType = {
+  bill: number;
+  people: number;
+  percent: number;
+  resetHandler: () => void;
+};
+
+const ResultsOutput = ({
+  bill,
+  people,
+  percent,
+  resetHandler,
+}: ResultsOutputType): JSX.Element => {
+  const tipPerPerson = (
+    bill: number,
+    people: number,
+    percent: number
+  ): number => {
     const deci = percent / 100;
     return (bill * deci) / people;
   };

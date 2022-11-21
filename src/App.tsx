@@ -1,44 +1,50 @@
-import { useState } from "react";
-
-import { StyledContainer, StyledCard } from "./App.styles.jsx";
+import { ChangeEvent, useState } from "react";
+import { StyledContainer, StyledCard } from "./App.styles";
 import { themeOptions } from "./themes";
 import { Grid, ThemeProvider } from "@mui/material";
 import { ReactComponent as LogoTitle } from "./images/logo.svg";
-import TipInput from "./input/input.component.jsx";
-import ResultsOutput from "./results/results.component.jsx";
+import TipInput from "./input/input.component";
+import ResultsOutput from "./results/results.component";
 
 function App() {
-  const [bill, setBill] = useState("");
-  const [people, setPeople] = useState("");
-  const [percent, setPercent] = useState("");
+  const [bill, setBill] = useState<number>(0);
+  const [people, setPeople] = useState<number>(0);
+  const [percent, setPercent] = useState<number>(0);
+  const [hasEntered, setHasEntered] = useState<boolean>(false);
 
-  const onBillChange = (e) => {
+  const onBillChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const billInput = e.target.value;
-    setBill(billInput);
+    setBill(+billInput);
   };
 
-  const percentHandler = (num) => {
+  const percentHandler = (num: number) => {
     setPercent(num);
   };
 
-  const onPeopleChange = (e) => {
+  const onPeopleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const peopleInput = e.target.value;
-    setPeople(peopleInput);
+    setPeople(+peopleInput);
+    setHasEntered(true);
   };
 
-  const customHandler = (e) => {
+  const customHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const amount = e.target.value;
-    setPercent(amount);
+    setPercent(+amount);
   };
+
+  const input1 = document.getElementById("input-to-clear1") as HTMLInputElement;
+  const input2 = document.getElementById("input-to-clear2") as HTMLInputElement;
+  const input3 = document.getElementById("input-to-clear3") as HTMLInputElement;
 
   const resetHandler = () => {
-    setBill("");
-    setPeople("");
-    setPercent("");
-    document.getElementById("input-to-clear1").value = "";
-    document.getElementById("input-to-clear2").value = "";
-    document.getElementById("input-to-clear3").value = "";
+    setBill(0);
+    setPeople(0);
+    setPercent(0);
+    input1.value = "";
+    input2.value = "";
+    input3.value = "";
   };
+
   return (
     <ThemeProvider theme={themeOptions}>
       <StyledContainer maxWidth="lg" role="main">
@@ -56,7 +62,7 @@ function App() {
                   customHandler={customHandler}
                   percent={percent}
                   people={people}
-                  bill={bill}
+                  hasEntered={hasEntered}
                 />
                 <ResultsOutput
                   bill={bill}

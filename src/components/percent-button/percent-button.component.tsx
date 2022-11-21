@@ -1,6 +1,16 @@
 import { StyledPercentButton } from "./percent-button.styles";
 
-const PercentButton = ({ children, percentHandler, percent }) => {
+type PercentButton = {
+  children: number;
+  percentHandler: (num: number) => void;
+  percent: number;
+};
+
+const PercentButton = ({
+  children,
+  percentHandler,
+  percent,
+}: PercentButton) => {
   return (
     <StyledPercentButton
       sx={{
