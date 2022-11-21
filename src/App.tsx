@@ -1,12 +1,10 @@
 import { ChangeEvent, useState } from "react";
-import React from "react";
 import { StyledContainer, StyledCard } from "./App.styles";
 import { themeOptions } from "./themes";
 import { Grid, ThemeProvider } from "@mui/material";
 import { ReactComponent as LogoTitle } from "./images/logo.svg";
 import TipInput from "./input/input.component";
 import ResultsOutput from "./results/results.component";
-import { render } from "@testing-library/react";
 
 function App() {
   const [bill, setBill] = useState<number>(0);
