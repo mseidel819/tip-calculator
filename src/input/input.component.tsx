@@ -3,7 +3,16 @@ import { ReactComponent as IconDollar } from "../images/icon-dollar.svg";
 import { ReactComponent as IconPerson } from "../images/icon-person.svg";
 import PercentButton from "../components/percent-button/percent-button.component";
 import { StyledInput, CustomInput } from "./input.styles";
-import React from "react";
+import { ChangeEvent } from "react";
+
+type TipInputProps = {
+  onBillChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  percentHandler: (num: number) => void;
+  percent: number;
+  onPeopleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  people: number;
+  customHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+};
 
 const TipInput = ({
   onBillChange,
@@ -12,7 +21,7 @@ const TipInput = ({
   onPeopleChange,
   people,
   customHandler,
-}) => {
+}: TipInputProps) => {
   const tipArray = [10, 15, 20, 25, 30];
 
   return (
@@ -70,7 +79,7 @@ const TipInput = ({
             Number of People
           </Typography>
         </Grid>
-        {+people === 0 && people !== "" && (
+        {people === 0 && (
           <Grid item xs={4}>
             <Typography variant="h2" color="red">
               Can't be zero
@@ -80,7 +89,7 @@ const TipInput = ({
 
         <StyledInput
           onChange={onPeopleChange}
-          error={+people === 0 && people !== ""}
+          error={people === 0}
           type="number"
           id="input-to-clear1"
           disableUnderline
