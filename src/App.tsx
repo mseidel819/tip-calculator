@@ -12,6 +12,7 @@ function App() {
   const [bill, setBill] = useState<number>(0);
   const [people, setPeople] = useState<number>(0);
   const [percent, setPercent] = useState<number>(0);
+  const [hasEntered, setHasEntered] = useState<boolean>(false);
 
   const onBillChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const billInput = e.target.value;
@@ -25,6 +26,7 @@ function App() {
   const onPeopleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const peopleInput = e.target.value;
     setPeople(+peopleInput);
+    setHasEntered(true);
   };
 
   const customHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +64,7 @@ function App() {
                   customHandler={customHandler}
                   percent={percent}
                   people={people}
+                  hasEntered={hasEntered}
                 />
                 <ResultsOutput
                   bill={bill}

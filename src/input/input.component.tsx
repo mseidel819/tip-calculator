@@ -4,6 +4,7 @@ import { ReactComponent as IconPerson } from "../images/icon-person.svg";
 import PercentButton from "../components/percent-button/percent-button.component";
 import { StyledInput, CustomInput } from "./input.styles";
 import { ChangeEvent } from "react";
+import { useState } from "react";
 
 type TipInputProps = {
   onBillChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -12,6 +13,7 @@ type TipInputProps = {
   onPeopleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   people: number;
   customHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  hasEntered: boolean;
 };
 
 const TipInput = ({
@@ -21,6 +23,7 @@ const TipInput = ({
   onPeopleChange,
   people,
   customHandler,
+  hasEntered,
 }: TipInputProps) => {
   const tipArray = [10, 15, 20, 25, 30];
 
@@ -79,7 +82,7 @@ const TipInput = ({
             Number of People
           </Typography>
         </Grid>
-        {people === 0 && (
+        {people === 0 && hasEntered && (
           <Grid item xs={4}>
             <Typography variant="h2" color="red">
               Can't be zero
@@ -89,7 +92,7 @@ const TipInput = ({
 
         <StyledInput
           onChange={onPeopleChange}
-          error={people === 0}
+          error={hasEntered && people === 0}
           type="number"
           id="input-to-clear1"
           disableUnderline
